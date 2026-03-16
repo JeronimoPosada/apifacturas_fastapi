@@ -1,0 +1,29 @@
+# ── Entorno virtual ──────────────────────────────────────────
+# La carpeta venv/ contiene las librerías instaladas con pip.
+# NO se versiona porque cada desarrollador la crea localmente
+# con: python -m venv venv && pip install -r requirements.txt
+venv/
+
+# ── Bytecode de Python ──────────────────────────────────────
+# Python compila los .py a bytecode (.pyc) para ejecutarlos más rápido.
+# Estos archivos se regeneran automáticamente, no necesitan versionarse.
+__pycache__/
+*.pyc
+
+# ── Variables de entorno ────────────────────────────────────
+# El archivo .env contiene credenciales de base de datos (usuario,
+# contraseña, servidor). NUNCA debe subirse a GitHub porque cualquier
+# persona podría ver tus credenciales.
+.env
+.env.development
+
+# ── Archivos temporales de Office ───────────────────────────
+# Cuando Word/Excel tiene un archivo abierto, crea un temporal
+# que empieza con ~$. No tiene sentido versionarlos.
+~$*
+
+# ── IDE y editores ──────────────────────────────────────────
+# Carpetas de configuración de editores. Cada desarrollador
+# tiene su propia configuración de VS Code, PyCharm, etc.
+.vscode/
+.idea/

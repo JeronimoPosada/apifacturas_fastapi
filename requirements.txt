@@ -1,0 +1,69 @@
+# ─────────────────────────────────────────────────────────────
+# Framework web asíncrono para construir la API REST.
+# FastAPI es el framework principal. Proporciona:
+# - Decoradores para definir rutas (@router.get, @router.post)
+# - Validación automática con Pydantic
+# - Documentación Swagger UI generada automáticamente en /docs
+# - Soporte nativo para async/await (alto rendimiento)
+# ─────────────────────────────────────────────────────────────
+fastapi>=0.100.0
+
+# ─────────────────────────────────────────────────────────────
+# Servidor ASGI que ejecuta la aplicación FastAPI.
+# ASGI = Asynchronous Server Gateway Interface.
+# uvicorn recibe peticiones HTTP y las pasa a FastAPI.
+# [standard] incluye herramientas adicionales para mejor rendimiento.
+# Es equivalente a Kestrel en ASP.NET o Tomcat en Java.
+# Comando para ejecutar: uvicorn main:app --reload
+# ─────────────────────────────────────────────────────────────
+uvicorn[standard]>=0.22.0
+
+# ─────────────────────────────────────────────────────────────
+# Librería de validación de datos.
+# Pydantic v2 valida automáticamente los datos que recibe la API.
+# Ejemplo: si defines stock: int y envían "abc", Pydantic rechaza
+# la petición con un error 422 (Unprocessable Entity) antes de que
+# llegue a tu código.
+# ─────────────────────────────────────────────────────────────
+pydantic>=2.0.0
+
+# ─────────────────────────────────────────────────────────────
+# Extensión de Pydantic para leer configuración desde archivos .env.
+# Permite crear clases Settings que cargan automáticamente las
+# variables de entorno. Así no tienes que hacer os.getenv() manualmente.
+# ─────────────────────────────────────────────────────────────
+pydantic-settings>=2.0.0
+
+# ─────────────────────────────────────────────────────────────
+# Soporte alternativo para cargar archivos .env.
+# Algunas versiones de pydantic-settings lo requieren internamente.
+# ─────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0
+
+# ─────────────────────────────────────────────────────────────
+# Driver asíncrono para PostgreSQL.
+# asyncpg es el driver más rápido para PostgreSQL en Python.
+# Permite ejecutar queries sin bloquear el hilo principal,
+# lo que significa que la API puede atender otras peticiones
+# mientras espera la respuesta de la base de datos.
+# ─────────────────────────────────────────────────────────────
+asyncpg>=0.28.0
+
+# ─────────────────────────────────────────────────────────────
+# ORM asíncrono (usamos SOLO como query builder, NO como ORM).
+# SQLAlchemy proporciona:
+# - create_async_engine: crea el pool de conexiones
+# - text(): permite escribir SQL crudo con parámetros seguros
+# - AsyncEngine/AsyncConnection: manejo async de conexiones
+# NO usamos el ORM (modelos declarativos). Solo usamos SQLAlchemy
+# como constructor de queries SQL parametrizados.
+# [asyncio] incluye el soporte para async/await.
+# ─────────────────────────────────────────────────────────────
+sqlalchemy[asyncio]>=2.0.0
+
+# ─────────────────────────────────────────────────────────────
+# Requerido internamente por SQLAlchemy para async.
+# greenlet permite que SQLAlchemy maneje contextos asíncronos
+# internamente. Se instala como dependencia técnica.
+# ─────────────────────────────────────────────────────────────
+greenlet>=3.0.0
