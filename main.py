@@ -29,7 +29,7 @@ app = FastAPI(
     title="API Producto",
     # Titulo que aparece en Swagger UI (/docs) y ReDoc (/redoc).
 
-    description="API REST CRUS para la tabla producto.",
+    description="API REST CRUD para la tabla producto.",
     # Descripción que aparece debajo del título en la documentación.
 
     version="1.0.0",

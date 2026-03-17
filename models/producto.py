@@ -41,7 +41,7 @@ class Producto(BaseModel):
     # Validación: si envian "abc", Pydantic rechaza con 422.
     # Coerción: si envian "20" (string), Pydantic convierte a int 20
 
-    volorunitario: float | None = None
+    valorunitario: float | None = None
     # Campo OPCIONAL, tipo decimal o None.
     # float | None -> acepta un número decimal o None.
     # Corresponde a: producto.valorunitario NUMERIC(14,2) NOT NULL
